@@ -1,0 +1,11 @@
+st = '123gfg_'
+def checkAlnum(st):
+    if st.isalnum():
+        return "YES"
+    return 'NO'
+if '_' in st:
+    st1 = st.replace('_','')
+    print(checkAlnum(st1))
+    print(st)
+else:
+    print(checkAlnum(st))
