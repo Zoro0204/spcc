@@ -1,0 +1,5 @@
+x = "tumbabtum"
+if ("bab" in x):
+    print("yes")
+else:
+    print("no")

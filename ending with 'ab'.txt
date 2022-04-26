@@ -1,0 +1,12 @@
+#include<stdio.h>
+#include<string.h>
+void main(){
+    int x;
+    char str[100];
+    gets(str);
+    x = strlen(str);
+    if(str[x-1]=='b' && str[x-2]=='a')
+    printf("yes");
+    else
+    printf("no");
+}
