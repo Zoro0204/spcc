@@ -1,0 +1,14 @@
+rel_op = {
+    "==" : "Double Equals to",
+    ">"  : "greater than",
+    "<"  : "less than",
+    "<=" : "less than equals to",
+    ">=" : "Greater than Equals to",
+    }
+
+inp = input("Enter the Relational operator: ")
+
+if inp in rel_op:
+    print(rel_op[inp])
+else :
+    print("No such operator")
