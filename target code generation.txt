@@ -1,0 +1,33 @@
+import operator
+
+code = [
+    ['','START',200],
+    ['','MOVER','AREG','A'],
+    ['','ADD','AREG','=2'],
+    ['A','DC',4],
+    ['B','DS',2],
+    ['','ORIGN','A+10'],
+    ['','LTORG'],
+    ['','MOVER','BREG','=4'],
+    ['','ADD','AREG','BREG'],
+    ['','END']
+]
+
+st =[]
+registers = {'AREG':1,'BREG':2,'CREG':3}
+addr = 0
+for i in range(len(code)):
+    if code[i][1] == 'START':
+        addr = code[i][2]
+    elif code[i][0] != '':
+        st.append([code[i][0],addr,1])
+    elif code[i][1] == 'DS':
+        addr+=code[i][2]
+    elif code[i][1] == 'ORIGN':
+        if '+' in code[i][2]:
+            addr+=int(code[i][2][2:])
+        pass
+    addr+=1
+
+
+print(st)
