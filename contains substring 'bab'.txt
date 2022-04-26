@@ -1,5 +1,15 @@
-x = "tumbabtum"
-if ("bab" in x):
-    print("yes")
-else:
-    print("no")
+#include <stdio.h>
+#include<string.h>
+void main(){
+    char str[100];
+    int i, result=0;
+    scanf("%s", str);
+    for(i=0;i<strlen(str);i++){
+        if(str[i]=='b'&&str[i+1]=='a'&&str[i+2]=='b')
+        result = 1;
+    }
+    if(result==1)
+    printf("yes");
+    else
+    printf("no");
+}
