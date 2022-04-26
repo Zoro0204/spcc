@@ -1,0 +1,40 @@
+precedence = {'+':1, '-':1, '*':2,'/':2,'^':3}
+op = {'+','-','*','/'}
+
+X = input("Enter an infix arithmetic expression\n")
+stack = []
+postfix=""
+for i in X:
+    if (i in op):
+        if len(stack)==0:
+            stack.append(i)
+        elif len(stack)!=0:
+            if (precedence[i]>precedence[stack[-1]]):
+                stack.append(i)
+            else:
+                while(len(stack)!=0 and (precedence[i] <= precedence[stack[-1]])):
+                    t = stack.pop()
+                    postfix+=t
+                stack.append(i)
+            
+    else :
+            postfix+=i
+    
+while stack:
+    postfix+=stack.pop()
+
+print(postfix)
+
+#for converting to 3-address code
+counter = 1
+expstack = []
+for i in postfix:
+  if i not in op:
+    expstack.append(i)
+  else:
+    a = expstack.pop()
+    b = expstack.pop()
+    print("t"+str(counter) + " = " + b + " "+ i + " "+ a)
+    expstack.append("t"+str(counter))
+    counter+=1
+print("x = t"+str(counter-1))
